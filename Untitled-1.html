@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VATSALYA</title>
+
+  <!-- A-Frame + AR.js -->
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.0.1/aframe/build/aframe-ar.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+      background: #000;
+    }
+    .center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Add this line */
+      min-height: 100vh;       /* Add this line */
+      margin-top: 0;           /* Remove margin-top */
+      color: rgb(255, 255, 255);
+      background-color: rgba(255, 255, 255, 0);
+    }
+    .center-content img {
+      margin-top: 16px;
+      background-color: rgba(0, 0, 0, 0);
+      animation: swipe 1s forwards;
+    }
+    @keyframes swipe {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    .center-content span {
+      font-size: 200%;
+      white-space: nowrap;
+      font-weight: bold;
+      animation: swipe 1s backwards;
+    }
+  </style>
+</head>
+<body>
+  <div class="center-content">
+    <span> SYMBOLIC INTERNATIONAL SCHOOL </span>
+    <img src="https://raw.githubusercontent.com/VATSALYA332/CODE/refs/heads/main/image%20(1).png" alt="SIS" width="350" height="350">
+  </div>
+
+  <!-- AR Scene -->
+  <a-scene embedded arjs>
+    <a-marker preset="hiro">
+      <a-image 
+        src="C:\Users\HP\Downloads\download.jpeg" 
+        width="2" 
+        height="1.5" 
+        position="0 0.5 0">
+      </a-image>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
